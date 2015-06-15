@@ -1,0 +1,94 @@
+﻿@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<html>
+<head>
+    <title></title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/loginstyle.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+</head>
+
+<body style="background-image:url('/Content/images/y.png')">
+    <div class="main">
+        <div class="header">
+            <h1>Login or Create a Free Account!</h1>
+        </div>
+        <div class="left-form">
+            <h2>New Account:</h2>
+            <form action="/Home/ApproveReg" class="form-signin" method="post">
+                <input class="form-control" data-val="true" data-val-length="Name must be between 2 and 50 characters!" data-val-length-max="50" data-val-length-min="2" data-val-required="The Name field is required." id="UserName" name="Name" placeholder="name" style="margin-bottom:20px;" type="text" value="" /> <h1>  </h1><input type="button" class="btn btn-success" id="b1" value="Check" />
+                <span class="field-validation-valid" data-valmsg-for="Name" data-valmsg-replace="true"></span>
+
+                
+                   
+                   
+
+                    <div id="result"></div>
+                    @Scripts.Render("~/bundles/jquery")
+                    <script>
+
+                        $(document).ready(function () {
+
+                            $('#checking').hide();
+
+                            $('#b1').click(function () {
+
+                                var userName = $('#UserName').val();
+
+                                //alert('User Name ='+ userName);
+                                $('#checking').show();
+                                $.getJSON("/home/CheckUserName?UserName=" + userName, function (data) {
+                                    $('#checking').hide();
+                                    if (data) {
+                                        $('#result').text("User already exists in database");
+
+                                    }
+                                    else {
+                                        $('#result').text("User Name is available");
+                                    }
+                                });
+
+                            });
+
+                        });
+                    </script>
+                    <!--------------------------------------------------------------------------------------------------------->
+
+                
+
+                <input class="form-control" data-val="true" data-val-length="Password must be between 3 and 50 characters!" data-val-length-max="50" data-val-length-min="3" data-val-required="The Password field is required." id="Password" name="Password" placeholder="Password" required="" style="margin-bottom:20px;" type="password" value="" />
+                <span class="field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span>    
+
+
+                <input class="form-control" data-val="true" data-val-length="Password must be between 3 and 50 characters!" data-val-length-max="50" data-val-length-min="3" data-val-required="The Password field is required." id="Password" name="ConfirmPassword" placeholder="ConfirmPassword" required="" style="margin-bottom:20px;" type="password" value="" />
+                <span class="field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span>    
+
+                 <button style="margin-top:10px" class="btn btn-lg btn-primary btn-block" type="submit">
+                    Create Account
+                </button>
+                <span class="field-validation-valid" data-valmsg-for="ex" data-valmsg-replace="true"></span>
+                
+            
+            
+            </form>
+        </div>
+        <div class="right-form">
+            <h2>Login:</h2>
+            <form action="/Home/ApproveLog" class="form-signin" method="post">
+                <label for="Name">Name</label><input class="form-control" data-val="true" data-val-length="Name must be between 2 and 50 characters!" data-val-length-max="50" data-val-length-min="2" data-val-required="The Name field is required." id="Name" name="name1" placeholder="Name" style="margin-bottom:6px;" type="text" value="" /><span class="field-validation-valid" data-valmsg-for="Name" data-valmsg-replace="true"></span>
+                <label for="Password">Password</label><input class="form-control" data-val="true" data-val-length="Password must be between 3 and 50 characters!" data-val-length-max="50" data-val-length-min="3" data-val-required="The Password field is required." id="Password" name="pass1" placeholder="Password" required="" style="margin-bottom:6px;" type="password" value="" /><span class="field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span>                    <button id=""style="margin-top:10px" class="btn btn-lg btn-primary btn-block" type="submit">
+                    Log in
+                </button>
+                <span class="field-validation-valid" data-valmsg-for="l" data-valmsg-replace="true"></span>
+            </form>
+        </div>
+        <div class="clear"> </div>
+    </div>
+</body>
+</html>

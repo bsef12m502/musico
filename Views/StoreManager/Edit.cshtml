@@ -1,0 +1,43 @@
+﻿@model MvcApplication3.Models.Store
+@{
+    ViewBag.Title = "Edit";
+}
+@using MvcApplication3.Models
+
+
+<h2>EditSong</h2>
+<html>
+<head>
+    <title></title>
+    <link href="~/Content/TableCSSCode.css" rel="stylesheet">
+</head>
+<body style="background-image:url('/Content/images/y.png')">
+    <div style="width:400px; margin-right:auto; margin-left:auto; border:1px solid #000;">
+        @using (Html.BeginForm("EditSong", "StoreManager", FormMethod.Post))
+        {
+
+            @Html.HiddenFor(model => model.Id)
+
+            <p>
+                @Html.LabelFor(model => model.GenreId)
+            @Html.EditorFor(model => model.GenreId)
+        </p>
+
+            <p>
+                @Html.LabelFor(model => model.ArtistId)
+                @Html.EditorFor(model => model.ArtistId)
+            </p>
+
+            <p>
+                @Html.LabelFor(mmodel => mmodel.Title)
+                @Html.EditorFor(mmodel => mmodel.Title)
+            </p>
+
+            <p>
+                <br /> <input type="submit" value="Save" />
+            </p>
+        }
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,66 @@
+﻿@{
+    ViewBag.Title = "Artists";
+}
+
+<h2>Artists</h2>
+
+@using MvcApplication3.Models
+<link href="~/Content/TableCSSCode.css" rel="stylesheet">
+<link href="~/Content/stylee.css" rel="stylesheet">
+<html>
+<body style="background-image:url('/Content/images/y.png')">
+
+
+
+
+    <center><h2><strong>Collection</strong></h2></center>
+    <div class=" CSSTableGenerator">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="table">
+                    <table border="1">
+
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Artist</th>
+                                <th>Title</th>
+                                <th> </th>
+                                <th> </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{Database1Entities6 ed = new Database1Entities6();}
+                            @foreach (Store s in Model)
+                            {
+
+                                <tr>
+                                    <td>@s.Id</td>
+
+                                    @{Artist a = ed.Artists.First(x => x.Id == s.ArtistId);}
+                                    <td>@a.Name</td>
+                                    <td>@s.Title</td>
+                                    <td>
+                                        @if (Session["username"] != null)
+                                        {
+                                            <a href="@Url.Action("Download", "Home", new { id=s.Id})"> Download</a>
+                                        }
+                                        else
+                                        {
+                                            <a href="@Url.Action("Register", "Home")">Login to Download</a>
+                                        }
+                                    </td>
+                                    <td>@Html.ActionLink("Play", "Play", new { id = s.Id })</td>
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

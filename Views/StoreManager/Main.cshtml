@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "Main";
+}
+@using MvcApplication3.Models
+
+<center><h2>Admin Panel</h2></center>
+<html>
+
+<body style="background-image:url('/Content/images/y.png')">
+
+    <link href="~/Content/TableCSSCode.css" rel="stylesheet">
+
+    <p>  <center>  @Html.ActionLink("MORE FUNCTIONS", "Option") </center> </p>
+    <div class=" CSSTableGenerator">
+    <div style="width:400px; margin-right:auto; margin-left:auto; border:1px solid #000;">
+
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Genre</th>
+                    <th>Artist</th>
+                    <th>Title</th>
+                    <th> </th>
+                    <th> </th>
+                </tr>
+            </thead>
+            @{Database1Entities6 ed = new Database1Entities6();}
+            <tbody>
+                @foreach (Store s in Model)
+                {
+
+                    <tr>
+                        <td>@s.Id</td>
+                        @{Genre g = ed.Genres.First(x => x.Id == s.GenreId);}
+                        <td>@g.Name</td>
+                        @{Artist a = ed.Artists.First(x => x.Id == s.ArtistId);}
+                        <td>@a.Name</td>
+                        <td>@s.Title</td>
+                        <td>@Html.ActionLink("Edit", "Edit", new { id = s.Id })</td>
+
+                        <td>@Html.ActionLink("Delete", "DeleteAlbum", new { id = s.Id })</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+    </div>
+</body>
+
+</html>

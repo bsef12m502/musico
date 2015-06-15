@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <title>MUSICO</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet">
+  
+    <link href="~/Content/bootstrap-hover-dropdown.min.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet">
+    <link href="~/Content/style.css" rel="stylesheet">
+   
+    <link href="~/Content/owl.carousel.css" rel="stylesheet">
+   
+    <link href="~/Content/responsive.css" rel="stylesheet">
+
+
+    <script src="~/Scripts/jquery.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/custom.js"></script>
+
+    <script src="~/Scripts/owl.carousel.min.js"></script>
+
+
+  
+
+</head>
+
+<body>
+    <!-- Header Section Starts -->
+    <header id="header-area" class="home">
+        <!-- Header Top Starts -->
+        <div class="header-top">
+            <div class="container">
+                <div class="row">
+
+                    <!-- Header Links Starts -->
+                    <div class="col-sm-12 col-xs-16">
+                        <div class="header-links">
+                            <ul class="nav navbar-nav pull-left">
+                                <li>
+                                    <a href="/StoreManager">
+                                        <i class="fa fa-home hidden-lg hidden-md" title="Admin"></i>
+                                        <span class="hidden-sm hidden-xs">
+                                            Admin
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav navbar-nav pull-right">
+                                <li>
+                                    <a href="/Home">
+                                        <i class="fa fa-home hidden-lg hidden-md" title="Home"></i>
+                                        <span class="hidden-sm hidden-xs">
+                                            Home
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/Home/About">
+                                        <i class="fa fa-heart hidden-lg hidden-md" title="About"></i>
+                                        <span class="hidden-sm hidden-xs">
+                                            About
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/Home/Feedback">
+                                        <i class="fa fa-heart hidden-lg hidden-md" title="Feedback"></i>
+                                        <span class="hidden-sm hidden-xs">                                            
+                                            Feedback
+                                        </span>
+                                    </a>
+                                </li>
+
+
+
+
+                                <li>
+                                    <a href="/Home/Register">
+                                        <i class="fa fa-unlock hidden-lg hidden-md" title="Register"></i>
+                                        <span class="hidden-sm hidden-xs">
+                                            Register
+                                        </span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                    </div>
+                    <!-- Header Links Ends -->
+                </div>
+            </div>
+        </div>
+        <!-- Header Top Ends -->
+        <!-- Main Header Starts -->
+        <div class="main-header">
+            <div class="container">
+                <div class="row">
+                    <!-- logoo Starts -->
+                    <div class="col-sm-6">
+                        <div id="logoo">
+                            <a href="index.html"><img src="~/Content/images/logoo.jpg" title="MUSICO" class="img-responsive" /></a>
+
+                        </div>
+                    </div>
+                    <!-- logoo Ends -->
+
+                    <!-- Search Starts -->
+
+                    <form action="/Store/Browse" method="post">
+                        <div class="col-sm-6">
+                            <div id="search">
+                                <div class="input-group">
+                                    <input type="text" class="form-control input-lg" placeholder="Search" name="search">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-lg" type="submit">
+                                            @*<i class="fa fa-search"></i>*@
+                                            <i class="glyphicon glyphicon-search"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        </form>
+                        <!-- Search Ends -->
+</div>
+            </div>
+        </div>
+    </header>
+
+
+
+
+
+    @RenderBody()
+
+  
+</body>
+</html>
+
+
+

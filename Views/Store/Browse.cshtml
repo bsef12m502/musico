@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "Browse";
+}
+@using MvcApplication3.Models
+
+
+<link href="~/Content/TableCSSCode.css" rel="stylesheet">
+<html>
+
+<body style="background-image:url('/Content/images/y.png')">
+    <h3>GENRES</h3>
+    <div class=" CSSTableGenerator">
+        <div style="width:400px; margin-right:auto; margin-left:auto; border:1px solid #000;">
+            <table border="1">
+                <tr>
+
+                    <td>Genre</td>
+                </tr>
+                @foreach (var i in ViewBag.genres)
+                {
+
+                    <tr>
+                        <td><a href="/Home/Categories/@i.Id"> @i.Name  </a></td>
+                    </tr>
+
+                }
+            </table>
+
+        </div>
+    </div>
+
+
+    <h3>ARTISTS</h3>
+
+    <div class=" CSSTableGenerator">
+        <div style="width:400px; margin-right:auto; margin-left:auto; border:1px solid #000;">
+            <table border="1">
+                <tr>
+
+                    <td>Name of Artists</td>
+                </tr>
+                @foreach (var a in ViewBag.artists)
+                {
+                    <tr>
+                        <td> <a href="/Home/Artists/@a.Id"> @a.Name  </a> </td>
+                    </tr>
+
+                }
+            </table>
+        </div>
+    </div>
+   
+</body>
+</html>

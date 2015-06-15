@@ -1,0 +1,46 @@
+﻿@model MvcApplication3.Models.Artist
+@{
+    ViewBag.Title = "Artist";
+}
+@using MvcApplication3.Models
+<link href="~/Content/TableCSSCode.css" rel="stylesheet">
+<center><h2>Add New Artist</h2></center>
+    <html>
+    <body style="background-image:url('/Content/images/y.png')">
+        <div style="width:400px; margin-right:auto; margin-left:auto; border:1px solid #000;">
+            @using (Html.BeginForm("AddArtist", "StoreManager", FormMethod.Post))
+            {
+
+
+                @Html.HiddenFor(model => model.Id)
+
+                <p>
+                    @{
+                List<Genre> lst = ViewBag.genres;
+                    }
+                    <h5>Select Genre:</h5>
+                    <select name="genre" required>
+
+                        @foreach (Genre g in lst)
+                        {
+                        <option value="@g.Name">@g.Name</option>}
+
+                    </select>
+                </p>
+                <br />
+                <h5>Write Artist Name:</h5>
+                <p>
+                    @Html.LabelFor(model => model.Name)
+                    @Html.TextBoxFor(model => model.Name)
+                </p>
+
+
+
+                <p>
+                    <br /> <input type="submit" value="Save" />
+                </p>
+            }
+        </div>
+    </body>
+</html>
+

@@ -1,0 +1,65 @@
+﻿
+@model MvcApplication3.Models.Store
+@{
+    ViewBag.Title = "Song";
+}
+@using MvcApplication3.Models
+<center><h2>Add a new Song</h2></center>
+<link href="~/Content/TableCSSCode.css" rel="stylesheet">
+    <html>
+    <body style="background-image:url('/Content/images/y.png')">
+        <div style="width:400px; margin-right:auto; margin-left:auto; border:1px solid #000;">
+
+
+
+
+            <form action="/StoreManager/AddSong" method="post" enctype="multipart/form-data">
+                @Html.HiddenFor(model => model.Id)
+                Upload Song: <input type="file" name="image" />
+
+
+
+                <p>
+                    @{
+                        List<Genre> lst = ViewBag.genres;
+                    }
+                    <h5>Select Genre:</h5>
+                    <select name="genre" required>
+
+                        @foreach (Genre g in lst)
+                        {
+                            <option value="@g.Id">@g.Name</option>}
+
+                    </select>
+                </p>
+
+                <p>
+                    @{
+                        List<Artist> artist = ViewBag.artists;
+                    }
+                    <h5>Select Artist:</h5>
+                    <select name="artist" required>
+
+                        @foreach (Artist a in artist)
+                        {
+                            <option value="@a.Id">@a.Name</option>}
+
+                    </select>
+                </p>
+
+                <p>
+                    <br /> <input type="submit" value="Save" />
+                </p>
+            </form>
+
+            @* <p>
+                    @Html.LabelFor(mmodel => mmodel.Title)
+                    @Html.EditorFor(mmodel => mmodel.Title)
+                </p>*@
+
+
+
+        </div>
+    </body>
+</html>
+

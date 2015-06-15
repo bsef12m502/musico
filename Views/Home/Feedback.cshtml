@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "Feedback";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<center><h1>THANKS FOR VISITING! PLEASE GIVE YOUR FEEDBACK</h1></center>
+    <html>
+    <head>
+        <title></title>
+        <link href="~/Content/bootstrap.css" rel="stylesheet" />
+        <link href="~/Content/loginstyle.css" rel="stylesheet" />
+        <script src="~/Scripts/jquery.js"></script>
+        <script src="~/Scripts/bootstrap.js"></script>
+
+
+
+
+    </head>
+
+    <body style="background-image:url('/Content/images/y.png')">
+
+        <div class="center-form">
+
+            <div style="padding-left:6em">
+                <h3><strong>THANKS FOR VISITING! PLEASE GIVE YOUR FEEDBACK</strong></h3>
+            </div>
+            <hr />
+
+            <div class="row">
+                <div class="col-md-6">
+
+                    <form style="padding-left:1em" action="/Home/FeedbackSave" method="post" id="f1">
+                        <pre>
+              
+                 
+               Name:      <input type="text" style="width:240px" placeholder="Name" name="name" required />
+
+               Feedback:  <textarea style="width:240px; height:70px" placeholder="Give feedback here" name="Feedback1"></textarea>
+                        <button style=" float:right; width:75px" class="btn btn-lg btn-primary btn-block" type="submit">
+                    Done
+                </button>
+                </pre>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </body>
+
+</html>

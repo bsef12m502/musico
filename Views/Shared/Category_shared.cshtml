@@ -1,0 +1,106 @@
+﻿@{
+
+       ViewBag.Title = "Category_shared";
+       Layout = "~/Views/Shared/_Layout.cshtml";
+       Database1Entities6 ed = new Database1Entities6();
+}
+@using MvcApplication3.Models
+
+<html>
+<head>
+    <title></title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet">
+
+    <link href="~/Content/bootstrap-hover-dropdown.min.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet">
+    <link href="~/Content/style.css" rel="stylesheet">
+
+    <link href="~/Content/owl.carousel.css" rel="stylesheet">
+
+    <link href="~/Content/responsive.css" rel="stylesheet">
+
+
+    <script src="~/Scripts/jquery.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/custom.js"></script>
+
+    <script src="~/Scripts/owl.carousel.min.js"></script>
+</head>
+
+<body style="background-image:url('/Content/images/y.png')">
+    
+
+
+
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-3">
+                <p class="lead"><strong>CATEGORIES</strong></p>
+
+
+                @foreach (Genre g in ed.Genres.ToList())
+                {
+                    @:<div class="list-group-item ">
+                        @Html.ActionLink(@g.Name, "Categories", new { @class = "list-group-item", id = g.Id })
+                        @:</div>
+                }
+
+            </div>
+            <div class="col-md-9">
+
+
+                <div class="row carousel-holder" style="padding-top:20px; margin-bottom:2%">
+                    <div class="col-md-12">
+                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <img src="~/Content/images/aaa].jpg" alt="">
+                                </div>
+                                <div class="item">
+                                    <img src="~/Content/images/banner2.jpg" alt="">
+                                </div>
+                                <div class="item">
+                                    <img src="~/Content/images/download.jpg" alt="">
+                                </div>
+                            </div>
+                            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                            </a>
+                            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            @RenderBody();
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+﻿@model MvcApplication3.Models.Admin
+@{
+    ViewBag.Title = "Index";
+}
+
+<center><h2>Admin Panel</h2></center>
+<html>
+
+
+<body style="background-image:url('/Content/images/y.png')">
+    <link href="~/Content/Forms.css" rel="stylesheet">
+
+    <div>
+        <h3>LOGIN</h3>
+    </div>
+    <hr />
+
+    <div class="row ">
+        <div class="center-block">
+            <div class="col-md-6 ">
+                
+                    <form style="padding-left:1em" action="/StoreManager/Approve" method="post" id="f1" class="STYLE-NAME">
+                        <pre>
+                Name:       <input type="text" style="width:240px" name="name" required /><br />
+                Password:   <input type="password" style="width:240px" name="pass" required /><br />
+
+                            <button style=" float:right; width:85px" class="btn btn-lg btn-primary btn-block" type="submit">
+                    Log in
+                </button>
+                </pre>
+                    </form>
+              
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

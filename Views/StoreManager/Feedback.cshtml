@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "Feedback";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using MvcApplication3.Models
+
+<center><h2>Admin Panel</h2></center>
+<html>
+
+<body style="background-image:url('/Content/images/y.png')">
+
+    <link href="~/Content/TableCSSCode.css" rel="stylesheet">
+
+   
+    <div class=" CSSTableGenerator">
+        <div style="width:400px; margin-right:auto; margin-left:auto; border:1px solid #000;">
+
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Feedback</th>
+                        
+                        <th> </th>
+                    </tr>
+                </thead>
+                @{Database1Entities6 ed = new Database1Entities6();}
+                <tbody>
+                    @foreach (Feedback s in Model)
+                    {
+
+                        <tr>
+                            <td>@s.Id</td>
+                            <td>@s.Name</td>
+                           <td>@s.Feedback1</td>
+                            <td data-toggle="tooltip" title="@s.Feedback1" class="col-md-2" style="text-overflow :ellipsis; white-space: nowrap; overflow: hidden; max-width: 40px;">@s.Feedback1</td>
+
+                            
+
+                            <td>@Html.ActionLink("Delete", "DeleteSuggestion", new { id = s.Id })</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
