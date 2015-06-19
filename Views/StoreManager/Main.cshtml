@@ -23,6 +23,7 @@
                     <th>Title</th>
                     <th> </th>
                     <th> </th>
+                    <th>  </th>
                 </tr>
             </thead>
             @{Database1Entities6 ed = new Database1Entities6();}
@@ -40,6 +41,19 @@
                         <td>@Html.ActionLink("Edit", "Edit", new { id = s.Id })</td>
 
                         <td>@Html.ActionLink("Delete", "DeleteAlbum", new { id = s.Id })</td>
+
+                        @{
+                    try
+                    {
+                        <td><img src="/Files/@s.ImageId" alt="Not Found" height="80" width="80" /></td>
+                    }
+                    catch (Exception e)
+                    {
+
+                    }
+
+                        }
+
                     </tr>
                 }
             </tbody>
